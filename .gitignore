@@ -90,10 +90,13 @@ target/
 .mypy_cache/
 
 # credentials
-/credentials/
+/credentials/*
 
 # logs
-/logs/
+/logs/*
+
+# tutorial
+/nlp-in-python-tutorial/
 
 # hidden files
 .*
