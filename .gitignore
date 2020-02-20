@@ -98,6 +98,9 @@ target/
 # tutorial
 /nlp-in-python-tutorial/
 
+# stop words
+/stop_words/*
+
 # hidden files
 .*
 !.gitignore
