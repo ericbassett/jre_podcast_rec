@@ -101,6 +101,9 @@ target/
 # stop words
 /stop_words/*
 
+# figures
+*.svg
+
 # hidden files
 .*
 !.gitignore
