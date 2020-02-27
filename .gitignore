@@ -97,7 +97,8 @@ target/
 
 # tutorial
 /nlp-in-python-tutorial/
-
+/flask/
+/Flask-Autocomplete-master/
 # stop words
 /stop_words/*
 
