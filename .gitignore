@@ -103,6 +103,12 @@ target/
 
 # figures
 *.svg
+*.jpg
+*.jpeg
+*.mp4
+
+# fonts
+**/fonts/*
 
 # hidden files
 .*

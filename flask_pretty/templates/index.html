@@ -1,0 +1,231 @@
+<!DOCTYPE HTML>
+<!--
+	Industrious by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>Industrious by TEMPLATED</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link rel="stylesheet" href="/static/assets/css/main.css" />
+		<link rel="stylesheet" href="/static/assets/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,500,600" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a class="logo" href="https://ericbassett.tech">Eric Bassett</a>
+			</header>
+
+		<!-- Banner -->
+		<section id="banner">
+			<div class="inner">
+				<h1>Joe Rogan Podcast</h1>
+				<p>A super recommender designed by <a href="https://ericbassett.tech">Eric Bassett</a>
+					for the only podcast offering an unbiased discussion of celebrities, politics, science, diets,
+					conspiracies, and drugs.					
+				</p>
+			</div>
+			
+		</section>
+
+		<!-- Highlights -->
+			<section class="wrapper">
+				<div class="inner">
+					<header class="special">
+						<h2>Recommendations</h2>
+						<p>Get recommendations by topic or by an episode you know you liked.</p>
+					</header>
+					<h3>Search for Similar Episode</h3>
+					<ul class="actions">
+						<input type="text" name="name" id="episode_name" value="" placeholder="Episode Name" />
+						<li><a class="button primary" onclick="get_ep_rec()">Search</a></li>
+					</ul>
+					<h3>Search for Topic</h3>
+					<ul class="actions">
+						<select name="category" id="episode_topic">
+							<option value="">- Select -</option>
+							<option value="Writers/Entertainers">Writers/Entertainers</option>
+							<option value="Diet Science">Diet Science</option>
+							<option value="Hunting">Hunting</option>
+							<option value="Ancient History">Ancient History</option>
+							<option value="Politics">Politics</option>
+							<option value="Diet Fitness">Diet Fitness</option>
+							<option value="Marijuana/Drugs">Marijuana/Drugs</option>
+							<option value="Physics/Math">Physics/Math</option>
+							<option value="Biology">Biology</option>
+							<option value="Economics">Economics</option>
+							<option value="AI/Tech">AI/Tech</option>
+							<option value="Fighting">Fighting</option>
+							<option value="CIA/Aliens/Conspiracy">CIA/Aliens/Conspiracy</option>
+						</select>
+						<li><a class="button primary" onclick="get_tpc_rec()">Search</a></li>
+					</ul>
+					<div class="highlights" id="rec_div">
+					</div>
+				</div>
+			</section>
+
+		<!-- CTA -->
+		<section id="cta" class="wrapper">
+			<div class="inner">
+				<h2>Testimonials</h2>
+				<p>Eric's podcast recommender is used and loved by the amazing people in the testimonials below.</p>
+			</div>
+		</section>
+
+	<!-- Testimonials -->
+		<section class="wrapper">
+			<div class="inner">
+				<div class="testimonials">
+					<section>
+						<div class="content">
+							<blockquote>
+								<p>I listen to the Joe Rogan podcast any time I'm not busy working in Vim or winning goldfish. This recommender is fantastic.</p>
+							</blockquote>
+							<div class="author">
+								<div class="image">
+									<img src="{{ url_for('static',filename='images/noah.jpeg') }}" alt="" />
+								</div>
+								<p class="credit">- <strong>Noah</strong> <span>Hamburger</span></p>
+							</div>
+						</div>
+					</section>
+					<section>
+						<div class="content">
+							<blockquote>
+								<p>I was shocked by how insightful and not a platform for extremists the podcast is.</p>
+							</blockquote>
+							<div class="author">
+								<div class="image">
+									<img src="{{ url_for('static',filename='images/john.jpeg') }}" alt="" />
+								</div>
+								<p class="credit">- <strong>John</strong> <span>Nano User</span></p>
+							</div>
+						</div>
+					</section>
+					<section>
+						<div class="content">
+							<blockquote>
+								<p>Metissing Boi!</p>
+							</blockquote>
+							<div class="author">
+								<div class="image">
+									<img src="{{ url_for('static',filename='images/erik.jpeg') }}" alt="" />
+								</div>
+								<p class="credit">- <strong>Erik</strong> <span>Metis Pro</span></p>
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
+		</section>			
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<div class="content">
+						<section>
+							<h3>Like the recommender?</h3>
+							<p>Consider offering me a job.</p>
+						</section>
+					</div>
+					<div class="copyright">
+						&copy; Eric Bassett 2020.
+					</div>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="{{ url_for('static',filename='assets/js/jquery.min.js') }}"></script>
+			<script src="{{ url_for('static',filename='assets/js/browser.min.js') }}"></script>
+			<script src="{{ url_for('static',filename='assets/js/breakpoints.min.js') }}"></script>
+			<script src="{{ url_for('static',filename='assets/js/util.js') }}"></script>
+			<script src="{{ url_for('static',filename='assets/js/main.js') }}"></script>
+			<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+			<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.js"></script>
+			<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+			<script>
+				$(function() {
+					$.ajax({
+						url: '{{ url_for("autocomplete") }}'
+						}).done(function (data){
+							$('#episode_name').autocomplete({
+								source: data,
+								minLength: 2
+							});
+						});
+					});
+			
+				function get_ep_rec() {
+					var episode = $("#episode_name").val();
+					$.ajax({
+						type: 'POST',
+						url: '{{ url_for("ep_rec") }}',
+						data: episode
+						}).done(function (data){
+							print_recs(data)
+						});
+					};
+
+				function get_tpc_rec() {
+					var topic = $("#episode_topic").val();
+
+					$.ajax({
+						type: 'POST',
+						url: '{{ url_for("topic_rec") }}',
+						data: topic
+						}).done(function (data){
+							print_recs(data)
+						});
+					};
+
+				function print_recs(data) {
+					var eps = data['episodes']
+        			var descs = data['descs']
+					var urls = data['urls']
+					let rec_div = document.getElementById("rec_div")
+
+					while (rec_div.firstChild) {
+						rec_div.removeChild(rec_div.lastChild);
+					}
+					
+					
+
+					for(i=0; i<eps.length; i++){
+						let section = document.createElement("section")
+
+						let div = document.createElement("div")
+						div.setAttribute("class","content")
+						let head = document.createElement("header")
+						let a = document.createElement("a")
+						a.setAttribute("href",urls[i])
+						a.setAttribute("class","icon fa-podcast")
+						let span = document.createElement("span")
+						span.setAttribute("class","label")
+						span.innerHTML = "Icon"
+						let h3 = document.createElement("h3")
+						h3.innerHTML = eps[i]
+						let p = document.createElement("p")
+						p.innerHTML = descs[i]
+
+						a.appendChild(span)
+
+						head.appendChild(a)
+						head.appendChild(h3)
+
+						div.appendChild(head)
+						div.appendChild(p)
+
+						section.appendChild(div)
+						rec_div.appendChild(section)
+					}
+				}
+			</script>
+	</body>
+</html>
