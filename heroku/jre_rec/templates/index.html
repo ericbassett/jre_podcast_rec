@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Industrious by TEMPLATED</title>
+		<title>Eric Bassett's JRE Recommender</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<meta name="description" content="" />
@@ -20,13 +20,24 @@
 		<!-- Header -->
 			<header id="header">
 				<a class="logo" href="https://ericbassett.tech">Eric Bassett</a>
+				<nav>
+					<a href="#menu">Menu</a>
+				</nav>
 			</header>
+
+		<!-- Nav -->
+		<nav id="menu">
+			<ul class="links">
+				<li><a href="/">Home</a></li>
+				<li><a href="/static/template.html">Template</a></li>
+			</ul>
+		</nav>
 
 		<!-- Banner -->
 		<section id="banner">
 			<div class="inner">
 				<h1>Joe Rogan Podcast</h1>
-				<p>A super recommender designed by <a href="https://ericbassett.tech">Eric Bassett</a>
+				<p>A recommender designed by <a href="https://ericbassett.tech">Eric Bassett</a>
 					for the only podcast offering an unbiased discussion of celebrities, politics, science, diets,
 					conspiracies, and drugs.					
 				</p>
@@ -80,51 +91,7 @@
 		</section>
 
 	<!-- Testimonials -->
-		<section class="wrapper">
-			<div class="inner">
-				<div class="testimonials">
-					<section>
-						<div class="content">
-							<blockquote>
-								<p>I listen to the Joe Rogan podcast any time I'm not busy working in Vim or winning goldfish. This recommender is fantastic.</p>
-							</blockquote>
-							<div class="author">
-								<div class="image">
-									<img src="{{ url_for('static',filename='images/noah.jpeg') }}" alt="" />
-								</div>
-								<p class="credit">- <strong>Noah</strong> <span>Hamburger</span></p>
-							</div>
-						</div>
-					</section>
-					<section>
-						<div class="content">
-							<blockquote>
-								<p>I was shocked by how insightful and not a platform for extremists the podcast is.</p>
-							</blockquote>
-							<div class="author">
-								<div class="image">
-									<img src="{{ url_for('static',filename='images/john.jpeg') }}" alt="" />
-								</div>
-								<p class="credit">- <strong>John</strong> <span>Nano User</span></p>
-							</div>
-						</div>
-					</section>
-					<section>
-						<div class="content">
-							<blockquote>
-								<p>Metissing Boi!</p>
-							</blockquote>
-							<div class="author">
-								<div class="image">
-									<img src="{{ url_for('static',filename='images/erik.jpeg') }}" alt="" />
-								</div>
-								<p class="credit">- <strong>Erik</strong> <span>Metis Pro</span></p>
-							</div>
-						</div>
-					</section>
-				</div>
-			</div>
-		</section>			
+		
 
 		<!-- Footer -->
 			<footer id="footer">
@@ -132,7 +99,7 @@
 					<div class="content">
 						<section>
 							<h3>Like the recommender?</h3>
-							<p>Consider offering me a job.</p>
+							<p>Consider donating to <a href="https://www.podgist.com/">podgist</a> or <a href="https://podscribe.app/">podscribe</a></p>
 						</section>
 					</div>
 					<div class="copyright">
@@ -148,8 +115,8 @@
 			<script src="{{ url_for('static',filename='assets/js/util.js') }}"></script>
 			<script src="{{ url_for('static',filename='assets/js/main.js') }}"></script>
 			<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
-			<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.js"></script>
-			<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+			<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+			<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 			<script>
 				$(function() {
 					$.ajax({

@@ -98,6 +98,14 @@ target/
 # tutorial
 /nlp-in-python-tutorial/
 /Flask-Autocomplete-master/
+
+# reports
+/reports/
+
+# website files
+**/images/
+**/sass/
+
 # stop words
 /stop_words/*
 

@@ -3,7 +3,6 @@ import json
 import wtforms
 from wtforms import StringField, Form, SelectField
 from html import unescape
-from recommender import recommender
 import run_model as rm
 import pickle
 
@@ -15,7 +14,6 @@ topics = rm.my_recommender.get_topics()
 tpc_list = []
 for i,v in enumerate(topics):
     tpc_list.append((topics[i],topics[i]))
-print(tpc_list)
 
 class SearchForm(Form):
     autocomp = StringField('Pick', id='city_autocomplete')
